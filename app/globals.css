@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-brand-blue: #1c6aae;
+  --color-brand-green: #1e9d72;
+  --color-brand-green-deep: #0e5f4a;
+  --color-brand-mint: #eaf8f3;
+  --color-brand-sand: #f7f3eb;
+  --color-brand-cream: #fffdf9;
+  --color-brand-slate: #24313d;
+  --color-brand-red: #d94b4b;
+  --color-brand-gold: #d5b273;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--color-brand-cream);
+  color: var(--color-brand-slate);
+  font-family: var(--font-sans), sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display), sans-serif;
+}
+
+::selection {
+  background: rgba(28, 106, 174, 0.18);
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+@layer components {
+  .panel {
+    @apply rounded-[2rem] border border-slate-200 bg-white p-6 shadow-soft;
+  }
+
+  .button-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2.5 font-semibold text-white transition hover:bg-[#145b99];
+  }
+
+  .button-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2.5 font-semibold text-brand-slate transition hover:border-brand-blue hover:text-brand-blue;
+  }
+}
