@@ -10,16 +10,21 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          blue: "#1C6AAE",
-          cyan: "#5BC0EB",
-          green: "#1E9D72",
-          greenDeep: "#0E5F4A",
-          mint: "#EAF8F3",
-          sand: "#F7F3EB",
-          cream: "#FFFDF9",
-          slate: "#24313D",
-          red: "#D94B4B",
-          gold: "#D5B273",
+          // Pantone-based CSS variables (validate with Pantone guide)
+          "2767": "var(--color-2767)",
+          "2383": "var(--color-2383)",
+          "2202": "var(--color-2202)",
+          "2255": "var(--color-2255)",
+          "2253": "var(--color-2253)",
+          "2466": "var(--color-2466)",
+
+          // Friendly aliases
+          blueDark: "var(--color-2767)",
+          blue: "var(--color-2383)",
+          blueLight: "var(--color-2202)",
+          green: "var(--color-2255)",
+          greenLight: "var(--color-2253)",
+          greenDark: "var(--color-2466)",
         },
       },
       boxShadow: {

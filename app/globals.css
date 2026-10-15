@@ -2,16 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Brand tokens based on the Manual da Marca (Pantone references).
+   These hex values are approximate conversions — validate them against the official Pantone swatches for production printing and exact color matching.
+*/
 :root {
-  --color-brand-blue: #1c6aae;
-  --color-brand-green: #1e9d72;
-  --color-brand-green-deep: #0e5f4a;
-  --color-brand-mint: #eaf8f3;
-  --color-brand-sand: #f7f3eb;
-  --color-brand-cream: #fffdf9;
-  --color-brand-slate: #24313d;
-  --color-brand-red: #d94b4b;
-  --color-brand-gold: #d5b273;
+  /* Pantone approximations (validate against Pantone guide) */
+  --color-2767: #071E42; /* PANTONE 2767 - Azul Escuro (approx) */
+  --color-2383: #1F6FBF; /* PANTONE 2383C - Azul (approx) */
+  --color-2202: #7EC8F5; /* PANTONE 2202C - Azul Claro (approx) */
+  --color-2255: #1E9D72; /* PANTONE 2255C - Verde (approx) */
+  --color-2253: #CFF6E8; /* PANTONE 2253C - Verde Claro (approx) */
+  --color-2466: #0E5F4A; /* PANTONE 2466C - Verde Escuro (approx) */
+
+  /* Fallback branding variables used in components */
+  --brand-blue-dark: var(--color-2767);
+  --brand-blue: var(--color-2383);
+  --brand-blue-light: var(--color-2202);
+  --brand-green: var(--color-2255);
+  --brand-green-light: var(--color-2253);
+  --brand-green-dark: var(--color-2466);
+
+  /* Typography */
+  --font-sans: "Arial, Helvetica, sans-serif"; /* Auxiliary per manual */
+  --font-display: "Raleway, var(--font-sans)"; /* Primary per manual (Raleway) — Next's font loader will set a variable in layout.tsx */
 }
 
 html {
@@ -20,9 +33,9 @@ html {
 
 body {
   min-height: 100vh;
-  background: var(--color-brand-cream);
-  color: var(--color-brand-slate);
-  font-family: var(--font-sans), sans-serif;
+  background: var(--brand-blue-light); /* subtle page tone using brand light blue */
+  color: var(--brand-blue-dark);
+  font-family: var(--font-sans);
 }
 
 h1,
@@ -31,11 +44,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-display), sans-serif;
+  font-family: var(--font-display);
 }
 
 ::selection {
-  background: rgba(28, 106, 174, 0.18);
+  background: color-mix(in srgb, var(--brand-blue) 12%, transparent);
 }
 
 input,
@@ -51,10 +64,10 @@ button {
   }
 
   .button-primary {
-    @apply inline-flex items-center justify-center rounded-full bg-brand-blue px-4 py-2.5 font-semibold text-white transition hover:bg-[#145b99];
+    @apply inline-flex items-center justify-center rounded-full bg-[var(--brand-blue)] px-4 py-2.5 font-semibold text-white transition hover:brightness-95;
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2.5 font-semibold text-brand-slate transition hover:border-brand-blue hover:text-brand-blue;
+    @apply inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-4 py-2.5 font-semibold text-brand-slate transition hover:border-[var(--brand-blue)] hover:text-[var(--brand-blue)];
   }
 }
